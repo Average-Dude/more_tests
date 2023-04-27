@@ -31,13 +31,13 @@ int _printf(const char *format, ...)
         else
         {
             print_buffer(buffer, &buff_ind);
-            flags = get_flags(format, &i);
-            width = get_width(format, &i, args);
-            precision = get_precision(format, &i, args);
-            size = get_size(format, &i);
+            flags = _get_flags(format, &i);
+            width = _get_width(format, &i, args);
+            precision = _get_precision(format, &i, args);
+            size = _get_size(format, &i);
             ++i;
-            printed = handle_print(format, &i, args, buffer,
-                                   flags, width, precision, size);
+            printed = _print_handler(format, &i, args, buffer,
+                                     flags, width, precision, size);
             if (printed == -1)
                 return (-1);
             printed_chars += printed;
